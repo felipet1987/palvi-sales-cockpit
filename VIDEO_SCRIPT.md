@@ -28,7 +28,7 @@ Click tab `C` (top-right).
 
 > "Mismo dashboard, dataset C: cero alertas críticas. Pipeline sano. Solo dos WATCH."
 
-Click `A` again, then `B`, then `D`, vuelve a `A`. Lento, no apurado.
+Click `A` de vuelta. Lento, no apurado.
 
 > "Cada dataset cuenta una historia distinta. Eso es lo que el brief pedía: que la app responda diferente a cada uno. Y no es porque haya código por dataset — es porque las severity rules tripean distinto sobre los datos de cada uno."
 
@@ -44,7 +44,7 @@ Scroll to the `REGISTRY` declaration.
 
 > "Cada fila tiene aggregate, format, caption, severity opcional, y un hint. La UI nunca hace switch sobre la metric key — lee Presentation. Agregar una métrica es UNA fila acá."
 
-Scroll up a bit, mostrar `meanIgnoreNull` y `lastNonNull`.
+Scroll al tope del archivo (Cmd+F → `meanIgnoreNull`), mostrar `meanIgnoreNull` y `lastNonNull`.
 
 > "Aggregator distinto por métrica. stale_deals es snapshot, así que último valor del window. Las flow metrics — traffic, leads, deals — son mean ignorando nulls."
 
@@ -54,7 +54,7 @@ Scroll a `deltaSeverity`.
 
 Scroll a `staleDealsSeverity` y `responseTimeSeverity`.
 
-> "Para dos métricas hay overrides absolutos. stale_deals con 161 abiertos es CRIT aunque la tendencia sea estable. La severidad final es el max de trend y absolute."
+> "Para dos métricas hay overrides absolutos. stale_deals sobre 150 abiertos es CRIT aunque la tendencia sea estable. La severidad final es el max de trend y absolute."
 
 Switch a `src/domain/analysis.ts`. Scroll a `analyze`.
 
@@ -66,13 +66,11 @@ Switch a `src/domain/analysis.ts`. Scroll a `analyze`.
 
 Back to the running app (or stay on the editor — does not matter much).
 
-> "Tres cosas para una segunda iteración."
+> "Dos cosas para una segunda iteración."
 
 > "Tests por métrica. La pureza de analyze() los hace baratos, pero los dejé por el budget de tres horas."
 
 > "Selector de ventana y anchor day. Hoy hardcoded a siete días sobre el último día del dataset. Cuando esto se conecte a datos en vivo con delay de pipelines, hay que dejar al usuario elegir."
-
-> "Em-dash en ventanas all-null. Hoy un día sin datos para una métrica renderiza cero punto cero. Es técnicamente correcto pero leíble como valor real."
 
 > "Eso es todo. Gracias."
 
