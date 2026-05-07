@@ -5,9 +5,13 @@ Executive daily report for a B2B SaaS Sales Manager. Reads a bundled `metrics.js
 ```bash
 npm install
 npm run dev          # http://localhost:5173/?dataset=A
+                     # también ?dataset=B, ?dataset=C, ?dataset=D
+                     # o usar las tabs A/B/C/D del header
 npm run typecheck
 npm run build
 ```
+
+Los cuatro datasets están en `metrics.json` y se navegan vía la query string o las tabs. El trail completo de decisiones (BRD → análisis → REASONS Canvas prompt → código) vive en [`spdd/`](./spdd/), por si querés ver qué decidí yo y qué generó la IA.
 
 ## Decisiones técnicas
 
